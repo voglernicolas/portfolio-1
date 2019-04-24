@@ -19,23 +19,26 @@ body {
     rgba(218,103,230,1),
     rgba(130,129,253,1));
     justify-content: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 .container {
     font-size: 1.5em;
-    width: 100%;
     display: grid;
     grid-template-areas: 
         "sidebar"
         "content";
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh 90vh;
+    grid-template-rows: 2.6em 90vh;
 }
 
 
 nav ul {
     padding: 0;
-    margin: 1em;
+    margin: 0.8em 0.3em 0 0.3em;
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -64,6 +67,7 @@ nav li a:hover {
     width: 130px;
     border-radius: 50%;
     margin-top: 0.5em;
+    opacity: 0.9;
 }
 
 .hero h1 {
@@ -72,10 +76,11 @@ nav li a:hover {
     color: #373d46;
 }
 .hero p {
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.8em;
-    color: #98a8ad;
+    color: #8b9a9e;
 }
+
 
 .action-btn {
     display: inline-block;
@@ -103,7 +108,14 @@ nav li a:hover {
 }
 .right-content > ul > li{
     margin: 0px 22px;
+    transition: 0.5s;
+    opacity: 0.7;
 }
+
+.right-content > ul > li:hover{
+    opacity: 1;
+}
+
 .right-content ul li {
     list-style: none;
 }
@@ -128,12 +140,21 @@ svg {
     justify-content: center;
 }
 
+
 #made-with-love {
 text-align: center;
 font-family: 'Roboto Mono', monospace;
 opacity: 0.3;
 text-decoration: none;
 margin: 0;
+padding: 0;
+bottom: 0;
+margin-top: auto;
+transition: 1s;
+}
+
+#made-with-love:hover {
+    opacity: 1;
 }
 
 #mate {
@@ -147,32 +168,24 @@ margin: 0;
 100% { transform: scale(1); }
 }
 
-.footer, #svg-review, #svg-languages, #svg-java {
+#svg-java {
     display: none;
 }
-.footer { grid-area: footer; }
 
 /*1040*/
 @media (min-width: 860px) {
-    .footer, #svg-review, #svg-java {
+    #svg-java {
         display: contents;
     }
 
     
     .container {
         grid-template-areas: 
-            "sidebar content"
-            "sidebar footer";
-        grid-template-columns: 30vh auto;
-        grid-template-rows: 1fr;
+            "sidebar content";
+        grid-template-columns: 30vh 1fr;
+        grid-template-rows: 100vh;
     }
 
-    .right-content {
-        margin-top: 1em;
-    }
-    .right-content ul {
-        margin-top: 0.5em;
-    }
 
     nav ul {
         flex-direction: column;
@@ -199,6 +212,7 @@ margin: 0;
             rgba(218,103,236,1),
             rgba(138,125,254,1));
         padding-top: 4em;
+        box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.3);
     }
 
     .action-btn {
